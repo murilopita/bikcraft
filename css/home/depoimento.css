@@ -1,7 +1,4 @@
 .depoimento {
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
     background-color: var(--cor-p1);
     overflow: hidden;
 }
