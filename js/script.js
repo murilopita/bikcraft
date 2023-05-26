@@ -1,5 +1,6 @@
 //Menu Ativo
 
+
 //Seleção dos Links do Menu
 const links = document.querySelectorAll('.header-menu a');
 
@@ -18,7 +19,9 @@ function ativarLink(link) {
 links.forEach(ativarLink);
 
 
+
 //Ativar Itens do Orçamento
+
 
 const parametros = new URLSearchParams(location.search); //Retorna uma Array com os paramentros de busca.
 
@@ -35,7 +38,10 @@ function ativarProduto(parametro) {
 
 parametros.forEach(ativarProduto);
 
+
+
 //Perguntas Frequêntes
+
 
 //Selecionar a classe dos elementos que queremos add o evento de clicar.
 const perguntas = document.querySelectorAll('.perguntas button');
@@ -64,3 +70,36 @@ function eventosPerguntas(pergunta) {
 
 //Criar a função de clicar para CADA pergunta.
 perguntas.forEach(eventosPerguntas);
+
+
+
+//Galeria de Imagens
+
+
+//Selecionar cada imagens dentro da lista.
+const galeria = document.querySelectorAll('.bicicleta-imagens img');
+//Selecionar o container que envolve a galeria.
+const galeriaContainer = document.querySelector('.bicicleta-imagens');
+
+
+//Função de trocar imagem.
+
+function trocarImagem(event){
+    //seleciona a imagem que eu clicar no momento.
+    const img = event.currentTarget;
+    //Indica se o tamanho da tela segue o media query min de 1000px
+    const media = window.matchMedia('(min-width: 1000px)').matches;
+    
+    //Verificar o tamanho da tela para ativar a função da galeria.
+    if(media){
+        //Alterar a ordem do item na lista dentro do DOM.
+        galeriaContainer.prepend(img);
+    }
+}
+
+//Adicionando o evento de click a cada item da galeria
+function eventosGaleria(img){
+    img.addEventListener('click', trocarImagem);
+}
+
+galeria.forEach(eventosGaleria);
