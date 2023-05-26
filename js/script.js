@@ -103,3 +103,12 @@ function eventosGaleria(img){
 }
 
 galeria.forEach(eventosGaleria);
+
+
+//Animação - Plugin
+
+
+//Verificar se o plugin está ativo na página.
+if(window.SimpleAnime) {
+    new SimpleAnime();
+}
