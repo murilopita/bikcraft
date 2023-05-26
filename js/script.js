@@ -35,4 +35,32 @@ function ativarProduto(parametro) {
 
 parametros.forEach(ativarProduto);
 
+//Perguntas Frequêntes
 
+//Selecionar a classe dos elementos que queremos add o evento de clicar.
+const perguntas = document.querySelectorAll('.perguntas button');
+
+//Função que vai ocorrer ao 'click'
+function ativarPergunta(event) {
+    //Puxar o elemento que estou clicando.
+    const pergunta = event.currentTarget;
+    //Puxar o valor do atributo que tem na pergunta.
+    const controls = pergunta.getAttribute('aria-controls');
+    //Selecionar o elemento que contem a resposta através do controls.
+    const resposta = document.getElementById(controls);
+
+    //Adicionar uma classe no elemento que contem a resposta.
+    resposta.classList.toggle('ativa');
+    //Mudar o atributo do Aria-Expended.
+    const ativa = resposta.classList.contains('ativa');
+    pergunta.setAttribute('aria-expended', ativa);
+
+}
+
+//Função que add o evento de click.
+function eventosPerguntas(pergunta) {
+    pergunta.addEventListener('click', ativarPergunta)
+}
+
+//Criar a função de clicar para CADA pergunta.
+perguntas.forEach(eventosPerguntas);
